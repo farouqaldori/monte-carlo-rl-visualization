@@ -4,6 +4,8 @@ import { Settings } from "./Settings";
 import { TrajectoryDisplay } from "../trajectory-display/TrajectoryDisplay";
 import { ManualControls } from "../controls/ManualControls";
 import { AutoControls } from "../controls/AutoControls";
+import { TrajectorySummary } from "../trajectory-display/TrajectorySummary";
+import { TrajectorySteps } from "../trajectory-display/TrajectorySteps";
 
 export const Menu = () => {
   const { currentTrajectory, allTrajectories } = useGameStore();
@@ -34,33 +36,49 @@ export const Menu = () => {
         title="Current trajectory"
         isExpanded={expandedMenuItems.currentTrajectory}
         setIsExpanded={(expanded) => setExpandedMenuItems({ ...expandedMenuItems, currentTrajectory: expanded })}>
-        <div className="trajectorySection" style={{
-          marginTop: '0px',
-          minHeight: '140px'
+        <div style={{
+          marginTop: '8px',
+          marginBottom: '16px',
+          padding: '8px',
+          border: '1px solid #333',
+          borderRadius: '4px',
+          backgroundColor: '#1a1a1a',
+          minHeight: '200px'
         }}>
-          <div className="trajectoryInfo">
-            {currentTrajectory.steps.length > 0 ? (
-              <div>
-                <div className="stepsContainer" style={{}}>
-                  {currentTrajectory.steps.slice(-5).map((step, i) => (
-                    <div key={i} className="stepItem">
-                      <div className="stepTransition">
-                        Step {Math.max(currentTrajectory.steps.length - 5, 0) + i + 1}: ({step.state.x},{step.state.y}) → {step.action} → ({step.nextState.x},{step.nextState.y})
-                        , Reward: {step.reward}{step.return !== undefined && `, Return: ${step.return.toFixed(2)}`}
-                      </div>
-                    </div>
-                  ))}
-                  {currentTrajectory.steps.length > 5 && (
-                    <div style={{ opacity: 0.6, fontSize: '12px' }}>
-                      ... showing last 5 steps of {currentTrajectory.steps.length}
-                    </div>
-                  )}
+          {currentTrajectory.steps.length > 0 ? (
+            <>
+              <TrajectorySummary 
+                trajectory={currentTrajectory}
+                showStatus={true}
+              />
+              <TrajectorySteps 
+                steps={currentTrajectory.steps.slice(-5)}
+                maxHeight="120px"
+                stepNumberOffset={Math.max(currentTrajectory.steps.length - 5, 0)}
+              />
+              {currentTrajectory.steps.length > 5 && (
+                <div style={{
+                  opacity: 0.6,
+                  fontSize: '10px',
+                  textAlign: 'center',
+                  padding: '4px',
+                  color: '#666'
+                }}>
+                  ... showing last 5 steps of {currentTrajectory.steps.length}
                 </div>
-              </div>
-            ) : (
-              <div className="noSteps">No steps yet</div>
-            )}
-          </div>
+              )}
+            </>
+          ) : (
+            <div style={{
+              color: '#999',
+              fontStyle: 'italic',
+              textAlign: 'center',
+              padding: '16px',
+              fontSize: '12px'
+            }}>
+              No steps in current episode yet
+            </div>
+          )}
         </div>
       </MenuItem>
       <MenuItem
