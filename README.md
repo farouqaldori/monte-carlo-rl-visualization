@@ -2,6 +2,10 @@
 
 A React app for visualizing Monte Carlo reinforcement learning algorithms on a grid world environment.
 
+## Demo
+
+You can view a live demo of the application at [https://farouqaldori.github.io/monte-carlo-rl-visualization/](https://farouqaldori.github.io/monte-carlo-rl-visualization/).
+
 ## Features
 
 - Interactive grid world environment
