@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/monte-carlo-rl-visualization/static/css/main.a27e931a.css",
+    "main.js": "/monte-carlo-rl-visualization/static/js/main.80c7e38a.js",
+    "index.html": "/monte-carlo-rl-visualization/index.html",
+    "main.a27e931a.css.map": "/monte-carlo-rl-visualization/static/css/main.a27e931a.css.map",
+    "main.80c7e38a.js.map": "/monte-carlo-rl-visualization/static/js/main.80c7e38a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a27e931a.css",
+    "static/js/main.80c7e38a.js"
+  ]
+}
