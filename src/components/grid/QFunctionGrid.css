@@ -1,0 +1,35 @@
+@keyframes flash-positive {
+  0% {
+    background-color: transparent;
+  }
+
+  20% {
+    background-color: rgba(0, 255, 0, 0.4);
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes flash-negative {
+  0% {
+    background-color: transparent;
+  }
+
+  20% {
+    background-color: rgba(255, 0, 0, 0.4);
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+.flash-positive {
+  animation: flash-positive 2.8s ease-out;
+}
+
+.flash-negative {
+  animation: flash-negative 2.8s ease-out;
+}

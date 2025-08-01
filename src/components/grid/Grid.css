@@ -1,0 +1,44 @@
+.grid {
+  display: grid;
+  width: 100%;
+  height: 400px;
+  margin: 20px auto;
+  background-color: #383838;
+  gap: 2px;
+  padding: 2px;
+  margin-top: 0;
+}
+
+.cell {
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 12px;
+  position: relative;
+}
+
+.cell-position {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.cell-content {
+  font-size: 16px;
+}
+
+.cell-trap {
+  background-color: #111111;
+}
+
+.cell-goal {
+  background-color: #2d2d2d;
+}
+
+.cell-Agent {
+  /* background-color: #0066cc; */
+}

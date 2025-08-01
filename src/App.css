@@ -1,0 +1,15 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.left-panel {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+}
+
+.right-panel {
+  width: 50%;
+}
