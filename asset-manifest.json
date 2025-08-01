@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/monte-carlo-rl-visualization/static/css/main.a27e931a.css",
-    "main.js": "/monte-carlo-rl-visualization/static/js/main.85209ab9.js",
+    "main.js": "/monte-carlo-rl-visualization/static/js/main.de334d89.js",
     "index.html": "/monte-carlo-rl-visualization/index.html",
     "main.a27e931a.css.map": "/monte-carlo-rl-visualization/static/css/main.a27e931a.css.map",
-    "main.85209ab9.js.map": "/monte-carlo-rl-visualization/static/js/main.85209ab9.js.map"
+    "main.de334d89.js.map": "/monte-carlo-rl-visualization/static/js/main.de334d89.js.map"
   },
   "entrypoints": [
     "static/css/main.a27e931a.css",
-    "static/js/main.85209ab9.js"
+    "static/js/main.de334d89.js"
   ]
 }
