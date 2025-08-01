@@ -112,7 +112,7 @@ export const useGameStore = create<GameState>((set, get) => ({
   isAutoRunning: false,
   episodeCount: 0,
   maxEpisodes: 1000,
-  actionDelay: 500,
+  actionDelay: 10,
 
   // Initial Trajectory State
   currentTrajectory: { steps: [], isComplete: false },

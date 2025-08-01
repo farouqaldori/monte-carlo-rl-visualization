@@ -9,6 +9,10 @@ const LineChart = ({
   width?: number;
   height?: number;
 }) => {
+  // Mobile-responsive dimensions
+  const isMobile = window.innerWidth <= 768;
+  const responsiveWidth = isMobile ? Math.min(350, window.innerWidth - 40) : width;
+  const responsiveHeight = isMobile ? 150 : height;
   const padding = 30;
   const dataMaxY = data.length > 0 ? Math.max(...data) : 10;
   const dataMinY = data.length > 0 ? Math.min(...data) : -10;
@@ -20,9 +24,9 @@ const LineChart = ({
   const rangeY = maxY - minY;
 
   const points = data.length > 0 ? data.map((y, i) => {
-    const x = (i / maxEpisodes) * (width - 2 * padding) + padding;
+    const x = (i / maxEpisodes) * (responsiveWidth - 2 * padding) + padding;
     const yCoord =
-      height - padding - ((y - minY) / rangeY) * (height - 2 * padding);
+      responsiveHeight - padding - ((y - minY) / rangeY) * (responsiveHeight - 2 * padding);
     return [x, yCoord];
   }) : [];
 
@@ -36,29 +40,29 @@ const LineChart = ({
   );
 
   return (
-    <div style={{ width: '100%', height: '300px' }}>
-      <svg width="100%" height="100%" viewBox={`0 0 ${width} ${height}`}>
+    <div style={{ width: '100%', height: isMobile ? '200px' : '300px' }}>
+      <svg width="100%" height="100%" viewBox={`0 0 ${responsiveWidth} ${responsiveHeight}`}>
         <line
           x1={padding}
           y1={padding}
           x2={padding}
-          y2={height - padding}
+          y2={responsiveHeight - padding}
           stroke="#383838"
           strokeWidth="1"
         />
 
         <line
           x1={padding}
-          y1={height - padding}
-          x2={width - padding}
-          y2={height - padding}
+          y1={responsiveHeight - padding}
+          x2={responsiveWidth - padding}
+          y2={responsiveHeight - padding}
           stroke="#383838"
           strokeWidth="1"
         />
 
         {yTickValues.map((val, i) => {
           const y =
-            padding + (i / yTicks) * (height - 2 * padding);
+            padding + (i / yTicks) * (responsiveHeight - 2 * padding);
           return (
             <g key={i}>
               <line
@@ -72,7 +76,7 @@ const LineChart = ({
               <text
                 x={padding - 8}
                 y={y + 3}
-                fontSize="8"
+                fontSize={isMobile ? "6" : "8"}
                 stroke="#afafaf"
                 textAnchor="end"
               >
@@ -93,21 +97,21 @@ const LineChart = ({
 
           return fixedTicks
             .map((episodeIndex) => {
-              const x = (episodeIndex / maxEpisodes) * (width - 2 * padding) + padding;
+              const x = (episodeIndex / maxEpisodes) * (responsiveWidth - 2 * padding) + padding;
               return (
                 <g key={episodeIndex}>
                   <line
                     x1={x}
                     x2={x}
-                    y1={height - padding}
-                    y2={height - padding + 5}
+                    y1={responsiveHeight - padding}
+                    y2={responsiveHeight - padding + 5}
                     stroke="#383838"
                     strokeWidth="1"
                   />
                   <text
                     x={x}
-                    y={height - padding + 15}
-                    fontSize="8"
+                    y={responsiveHeight - padding + 15}
+                    fontSize={isMobile ? "6" : "8"}
                     stroke="#afafaf"
                     textAnchor="middle"
                   >
@@ -120,9 +124,9 @@ const LineChart = ({
 
         {data.length === 0 && (
           <text
-            x={width / 2}
-            y={height / 2}
-            fontSize="10"
+            x={responsiveWidth / 2}
+            y={responsiveHeight / 2}
+            fontSize={isMobile ? "8" : "10"}
             fill="#afafaf"
             textAnchor="middle"
           >
@@ -152,7 +156,7 @@ const LineChart = ({
                 <text
                   x={x}
                   y={y - 8}
-                  fontSize="10"
+                  fontSize={isMobile ? "8" : "10"}
                   fill="#afafaf"
                   textAnchor="middle"
                   fontWeight="bold"

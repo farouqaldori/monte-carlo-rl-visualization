@@ -1,15 +1,58 @@
 .App {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 16px;
+  padding: 8px;
 }
 
 .left-panel {
   display: flex;
   flex-direction: row;
-  gap: 32px;
+  gap: 16px;
 }
 
 .right-panel {
   width: 50%;
+}
+
+/* Mobile-only separators - hidden by default */
+.mobile-separator {
+  display: none;
+  width: 100%;
+  border: none;
+  border-top: 1px solid #383838;
+  margin: 16px 0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .App {
+    gap: 8px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .left-panel {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .separator {
+    display: none;
+  }
+  
+  /* Show mobile separators */
+  .mobile-separator {
+    display: block;
+  }
+  
+  /* Reorder within controls section on mobile: chart first, then menu */
+  .chart-container {
+    order: 1;
+  }
+  
+  .menu-container {
+    order: 2;
+  }
 }

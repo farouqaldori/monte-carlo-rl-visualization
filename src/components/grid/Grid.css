@@ -9,6 +9,26 @@
   margin-top: 0;
 }
 
+/* Mobile grid sizing */
+@media (max-width: 768px) {
+  .grid {
+    height: 250px;
+    margin: 8px auto;
+  }
+  
+  .cell {
+    font-size: 10px;
+  }
+  
+  .cell-position {
+    font-size: 10px;
+  }
+  
+  .cell-content {
+    font-size: 12px;
+  }
+}
+
 .cell {
   background-color: #000000;
   display: flex;

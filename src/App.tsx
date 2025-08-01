@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="left-panel">
+      <div className="left-panel grids-section">
         <div style={{ display: "block", width: "100%" }}>
           <Grid />
         </div>
@@ -28,11 +28,12 @@ function App() {
         </div>
       </div>
       <hr className="separator" style={{ width: "100%", margin: "0px" }} />
+      <hr className="mobile-separator" />
       <div className="left-panel">
-        <div style={{ display: "block", width: "100%" }}>
+        <div className="menu-container" style={{ display: "block", width: "100%" }}>
           <Menu />
         </div>
-        <div style={{ display: "block", width: "100%" }}>
+        <div className="chart-container" style={{ display: "block", width: "100%" }}>
           <label>Average total reward</label>
           <LineChart
             data={averageRewards.length > 0 ? averageRewards : []}
@@ -48,6 +49,7 @@ function App() {
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );
