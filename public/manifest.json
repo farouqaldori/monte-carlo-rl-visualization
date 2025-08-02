@@ -1,6 +1,6 @@
 {
   "short_name": "Monte Carlo Grid",
-  "name": "Create React App Sample",
+  "name": "A simulation for visualizing Monte Carlo reinforcement learning algorithms on a grid world environment.",
   "icons": [
     {
       "src": "favicon.ico",
